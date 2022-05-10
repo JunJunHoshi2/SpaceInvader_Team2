@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    int count;
     [SerializeField] GameObject bullet;
     AudioSource BullesSE;
     [SerializeField] GameObject ExplosionEffect;
