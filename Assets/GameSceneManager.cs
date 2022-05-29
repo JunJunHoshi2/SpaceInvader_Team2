@@ -24,8 +24,8 @@ public class GameSceneManager : MonoBehaviour
     {
         timer -= 1;
         UIText.text = timer.ToString();
-        audioSource = GetComponent<AudioSource>();
-        audioSource.PlayOneShot(BGM);
+        //audioSource = GetComponent<AudioSource>();
+        //audioSource.PlayOneShot(BGM);
     }
 
     public void AddScoreToText() //他のスクリプトからアクセスするからpublicで！
@@ -33,6 +33,11 @@ public class GameSceneManager : MonoBehaviour
         UIText.text = "Score: " + Score.ToString();  //テキストにスコアを代入
         UIText.gameObject.SetActive(true);  //テキストをアクティブにする
         button.gameObject.SetActive(true);
+        for (int i = 0; i < EnemyPortList.Count; i++)
+        {
+            EnemyPortList[i].SetActive(false);
+
+        }
     }
 
     void CallStart() //GameStart!と表示
