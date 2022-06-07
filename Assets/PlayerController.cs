@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     int HP = 5;
+    public List<GameObject> heart = new List<GameObject>();
     [SerializeField] GameObject bullet;
     AudioSource BullesSE;
     [SerializeField] GameObject ExplosionEffect;
@@ -28,7 +29,8 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         HP -= 1;
-        if(HP <= 0)
+        Destroy(heart[HP].gameObject);
+        if (HP <= 0)
         {
             GameObject explosion = Instantiate(ExplosionEffect);
             explosion.transform.position = this.transform.position;

@@ -24,7 +24,7 @@ public class EnemyPort : MonoBehaviour
     //敵を生成する関数
     void GenerateEnemy()  //敵を生成してからSetNextEnemy呼び出す
     {
-        int enemyindex = Random.Range(0, 3);  //変数enemyindexに0~2のランダムな数字を入れる（範囲は0以上3未満）
+        int enemyindex = Random.Range(0, EnemyList.Count);  //変数enemyindexに0~2のランダムな数字を入れる（範囲は0以上3未満）
         GameObject enemy = Instantiate(EnemyList[enemyindex]);  //敵を生成
         enemy.transform.position = this.transform.position; //生成した敵の位置を、このEnemyPortの位置に調整
         SetNextEnemy();
